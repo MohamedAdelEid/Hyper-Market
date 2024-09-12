@@ -149,8 +149,12 @@ return [
         'iat',
         'exp',
         'nbf',
-        'sub',
         'jti',
+        'sub',
+        'email',
+        'uid',
+        'roles',
+        'aud',
     ],
 
     /*
