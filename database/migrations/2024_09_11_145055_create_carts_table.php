@@ -10,12 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->string('user_id', 255)->collation('utf8mb4_0900_ai_ci');
             $table->foreign('user_id')->references('Id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('status');
-            $table->decimal('total_price');
+            $table->uuid('cookie_id');
+            $table->bigInteger('quantity')->default(1);
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('cart');
     }
 };
