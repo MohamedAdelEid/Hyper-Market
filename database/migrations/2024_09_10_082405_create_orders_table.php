@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id', 255)->collation('utf8mb4_0900_ai_ci');
+            $table->string('user_id', 255)->collation('utf8mb4_general_ci');
             $table->foreign('user_id')->references('Id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('status');
             $table->decimal('total_price');
